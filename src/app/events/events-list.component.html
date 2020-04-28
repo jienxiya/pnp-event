@@ -1,0 +1,14 @@
+<!-- Array of events -->
+<div class="container" *ngIf="isViewingList">
+    <div *ngFor="let event of events" class="jumbotron pb-5">
+        <app-event-details 
+        [event]="event"
+        (id)="sendID($event)" 
+        >
+        </app-event-details>
+    </div>
+</div> 
+
+<div class="container" *ngIf="!isViewingList">
+    <app-participants-list [event]="event"></app-participants-list>
+</div>

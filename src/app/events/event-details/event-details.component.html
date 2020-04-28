@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <h2>Event Title: {{event?.name}}</h2>
+    </div>
+    <div class="row">
+        <span><b>Event Category:</b> {{event?.category}}</span>
+    </div>
+    <div class="row" *ngIf="event.speaker">
+        <span><b>Event Speaker:</b> {{event?.speaker}}</span>
+    </div>
+    <div class="row" *ngIf="event.emcee">
+        <span><b>Event Emcee:</b> {{event?.emcee}}</span>
+    </div>
+    <div class="row">
+        <span><b>Event Time:</b> {{event?.time}}</span>
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="sendID(event.id)">View Details</button>
+</div>
