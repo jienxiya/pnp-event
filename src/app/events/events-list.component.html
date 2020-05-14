@@ -1,5 +1,14 @@
 <!-- Array of events -->
 <div class="container" *ngIf="isViewingList">
+    <div class="row">
+        <div class="col">
+            <h2 class="pb-3">List Of PN Events</h2>
+        </div>
+        <div class="col">
+            <app-add-event></app-add-event>
+        </div>
+    </div>
+    
     <div *ngFor="let event of events" class="jumbotron pb-5">
         <app-event-details 
         [event]="event"
@@ -10,5 +19,9 @@
 </div> 
 
 <div class="container" *ngIf="!isViewingList">
-    <app-participants-list [event]="event"></app-participants-list>
+    <app-participants-list 
+    [participants]="event.participants"
+    (backButton)="returnToListView()"
+    (addParticipant) = "addNewParticipant($event)"
+    ></app-participants-list>
 </div>

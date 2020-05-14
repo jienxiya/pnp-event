@@ -18,7 +18,18 @@ export class EventsListComponent {
         }
         this.isViewingList = false;
       })
+    }
 
+    returnToListView() {
+      this.isViewingList = true;
+    }
+
+    addNewParticipant(data){
+      this.events.map(event => {
+        if(event.id === this.event.id) {
+          event.participants.push(data);
+        }
+      })
     }
 }
 export const EVENTS = [
