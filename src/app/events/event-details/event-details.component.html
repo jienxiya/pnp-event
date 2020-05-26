@@ -1,24 +1,30 @@
 <div class="container">
-    <div class="row">
-        <h2>Event Title: {{event?.name}}</h2>
-    </div>
-    <div class="row">
-        <span><b>Event Category:</b> {{event?.category}}</span>
-    </div>
-    <div class="row" *ngIf="event.speaker">
-        <span><b>Event Speaker:</b> {{event?.speaker}}</span>
-    </div>
-    <div class="row" *ngIf="event.emcee">
-        <span><b>Event Emcee:</b> {{event?.emcee}}</span>
-    </div>
-    <div class="row">
-        <span><b>Event Time:</b> {{event?.time}}</span>
-    </div>
-    <div class="row">
-        <span><b>Event Date:</b> {{event?.date}}</span>
-    </div>
-    <div class="row">
-        <span><b>Event Description:</b> {{event?.description}}</span>
-    </div>
-    <button class="btn btn-primary" type="submit" (click)="sendID(event.id)">View Details</button>
+    <!-- <div class="row">
+        <div class="col-sm-6"> -->
+            <div class="row" style="margin-left: auto; margin-right: auto; justify-content: center; display: flex;">
+                <h4>{{event?.name}}</h4>
+            </div>
+            <div class="row">
+                <span><b>Event Category:</b> {{event?.category}}</span>
+            </div>
+            <div class="row" *ngIf="event.speaker">
+                <span><b>Event Speaker:</b> {{event?.speaker}}</span>
+            </div>
+            <div class="row" *ngIf="event.emcee">
+                <span><b>Event Emcee:</b> {{event?.emcee}}</span>
+            </div>
+            <div class="row">
+                <span><b>Event Time:</b> {{event?.time}}</span>
+            </div>
+            <div class="row">
+                <span><b>Event Date:</b> {{event?.date}}</span>
+            </div>
+            <div class="row">
+                <span><b>Event Description:</b> {{event?.description}}</span>
+            </div>
+            <br>    
+            <button class="btn-block btn btn-outline-info" type="submit" (click)="sendID(event.id)">View Details</button>
+        <!-- </div> -->
+    <!-- </div> -->
+    
 </div>

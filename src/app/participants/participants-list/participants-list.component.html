@@ -1,21 +1,28 @@
-<div class="container">     
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Full Name</th>
-        <th>Position</th>
-        <th>Company</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let participant of participants" >
-      <tr>
-        <td>{{participant?.fullName}}</td>
-        <td>{{participant?.position}}</td>
-        <td>{{participant?.company}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <button class="btn btn-outline-info" type="submit" (click)="returnToList()">View List</button> &nbsp;&nbsp;&nbsp;  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Participant</button>
+<div class="container">  
+  <div style="background-color: rgba(228, 178, 178, 0.15);  backdrop-filter: blur(5px); border-radius: 5px;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Position</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let participant of participants" >
+        <tr>
+          <td>{{participant?.fullName}}</td>
+          <td>{{participant?.position}}</td>
+          <td>{{participant?.company}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="justify-content: center; display: flex;">
+      <button class="btn btn-outline-info" style="width: 200px;" type="submit" (click)="returnToList()">Back</button> &nbsp;&nbsp;&nbsp; 
+      <button class="btn btn-outline-info" style="width: 200px;" data-toggle="modal" data-target="#myModal">Add Participant</button>
+    </div><br>
+  </div>   
+  
+  
   
     <!-- The Modal -->
     <div class="modal" id="myModal">
@@ -43,7 +50,7 @@
               <label for="company">Company</label>
               <input [ngModel]="company" name="company" type="text" class="form-control" placeholder="Company">
             </div>
-            <button class="btn btn-outline-info" type="submit" data-toggle="modal" data-target="#myModal">Add</button>
+            <button class="btn-block btn btn-outline-info" type="submit" data-toggle="modal" data-target="#myModal">Add</button>
           </form>
           </div>
         </div>

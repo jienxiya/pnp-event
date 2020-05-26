@@ -1,11 +1,4 @@
-<!-- <p>add-event works!</p> -->
-<button class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#myModal">Add Event</button>
-
- <!-- <h2>Modal Example</h2> -->
-    <!-- Button to Open the Modal -->
-    <!-- <button type="button" class="btn btn-primary" > -->
-      <!-- Open modal -->
-    <!-- </button> -->
+<button class="btn btn-outline-info" style="float: right;" data-toggle="modal" data-target="#myModal">Add Event</button>
   
     <!-- The Modal -->
     <div class="modal" id="myModal">
@@ -17,7 +10,6 @@
               <h4 class="modal-title">Add Event</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- (ngSubmit)="register(registerForm.value)" -->
             <!-- Modal body -->
             <div class="modal-body">
               <form [formGroup]="eventForm" autocomplete="off" (ngSubmit)="submitForm(eventForm.value)">
@@ -92,15 +84,9 @@
                       </div>
               </div>
               <br>
-              <button class="btn btn-outline-info" type="submit">Add</button>
+              <button class="btn-block btn btn-outline-info" type="submit">Add</button>
             </form>
             </div>
-            
-            <!-- Modal footer -->
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div> -->
-            
           </div>
         </div>
       </div>
