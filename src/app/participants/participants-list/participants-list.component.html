@@ -1,6 +1,3 @@
-<p>participants-list works!</p>
-
-
 <div class="container">     
   <table class="table">
     <thead>
@@ -18,14 +15,7 @@
       </tr>
     </tbody>
   </table>
-  <button class="btn btn-primary" type="submit" (click)="returnToList()">View List</button> &nbsp;&nbsp;&nbsp;  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Participant</button>
-
-  
-    <!-- <h2>Modal Example</h2> -->
-    <!-- Button to Open the Modal -->
-    <!-- <button type="button" class="btn btn-primary" > -->
-      <!-- Open modal -->
-    <!-- </button> -->
+  <button class="btn btn-outline-info" type="submit" (click)="returnToList()">View List</button> &nbsp;&nbsp;&nbsp;  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Participant</button>
   
     <!-- The Modal -->
     <div class="modal" id="myModal">
@@ -53,15 +43,9 @@
               <label for="company">Company</label>
               <input [ngModel]="company" name="company" type="text" class="form-control" placeholder="Company">
             </div>
-            <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal">Add</button>
+            <button class="btn btn-outline-info" type="submit" data-toggle="modal" data-target="#myModal">Add</button>
           </form>
           </div>
-          
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-          
         </div>
       </div>
     </div>

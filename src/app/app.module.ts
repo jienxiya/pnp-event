@@ -10,6 +10,11 @@ import { ParticipantsListComponent } from './participants/participants-list/part
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEventComponent } from './events/add-event/add-event.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +27,11 @@ import { AddEventComponent } from './events/add-event/add-event.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

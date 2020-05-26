@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pnp-event": {
+      "hosting": {
+        "pnp-events": [
+          "pnp-event"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pnp-event"
+  }
+}

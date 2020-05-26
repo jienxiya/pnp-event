@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist\\pnp-events",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

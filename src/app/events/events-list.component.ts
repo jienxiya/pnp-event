@@ -1,14 +1,34 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { EventModel, Participants } from '../service/event-model';
+import { EventService } from '../service/event.service';
+import { Subscription } from 'rxjs';
+ 
 @Component({
     selector: 'app-events-list',
-    templateUrl:'./events-list.component.html'
+    templateUrl:'./events-list.component.html',
+    styles: ['.body-content { font-size: 25px; }']
 })
 
-export class EventsListComponent {
-    events = EVENTS;
-    event: any;
+export class EventsListComponent implements OnInit, OnDestroy{
+    // events = EVENTS;
+    // event: any;
+    events: EventModel[];
+    event: EventModel;
     isViewingList = true;
+    getEventsSubscription: Subscription;
+
+    constructor(private eventService: EventService) {}
+
+    ngOnInit(){
+    //this.events = this.eventService.getEvents();
+      this.getEventsSubscription = this.eventService.getEvents().subscribe(events => {
+        this.events = events;
+      })
+    }
+
+    ngOnDestroy(){
+      this.getEventsSubscription.unsubscribe();
+    }
 
     sendID(data: any){
       //console.log( 'Received: ' + data);
@@ -24,12 +44,18 @@ export class EventsListComponent {
       this.isViewingList = true;
     }
 
-    addNewParticipant(data){
+    addNewParticipant(participant: Participants){
       this.events.map(event => {
         if(event.id === this.event.id) {
-          event.participants.push(data);
+          event.participants.push(participant);
+          this.eventService.updateEvent(event)
         }
       })
+    }
+
+    addEvent(event:EventModel){
+      this.eventService.addEvent(event);
+      console.log(event)
     }
 }
 export const EVENTS = [

@@ -125,6 +125,10 @@
               "devServerTarget": "pnp-events:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
