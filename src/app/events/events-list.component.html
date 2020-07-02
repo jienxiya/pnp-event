@@ -8,29 +8,20 @@
             <app-add-event (event)="addEvent($event)"></app-add-event>
         </div>
     </div>
-    
-        <div  class="container">
-            <div class="row">
-                <div *ngFor="let event of events" class="col-sm-6"><br>
-                    <div class="card p-3" style="background-color: antiquewhite; height: 300px;">
-                        <app-event-details 
-                        [event]="event"
-                        (id)="sendID($event)" 
-                        >
-                        </app-event-details>
-                    </div>
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let event of events" class="col-sm-6"><br>
+                <div class="card p-3" style="background-color: antiquewhite; height: 300px;">
+                    <app-event-details [event]="event" (id)="sendID($event)" (data)="deleteEvent($event)">
+                    </app-event-details>
                 </div>
             </div>
-            
+        </div>
     </div>
-    
-</div> 
+</div>
 
 <div class="container" *ngIf="!isViewingList">
-    <h3 style="justify-content: center; display: flex; color: crimson;" >{{ event.name }}</h3> <br>
-    <app-participants-list 
-    [participants]="event.participants"
-    (backButton)="returnToListView()"
-    (addParticipant) = "addNewParticipant($event)"
-    ></app-participants-list>
+    <h3 style="justify-content: center; display: flex; color: crimson;">{{ event.name }}</h3> <br>
+    <app-participants-list [participants]="event.participants" (backButton)="returnToListView()" (addParticipant)="addNewParticipant($event)" (participant)="removeParticipant($event)"></app-participants-list>
 </div>

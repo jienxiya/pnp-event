@@ -22,6 +22,7 @@ export class AddEventComponent implements OnInit {
   eventForm: FormGroup;
   private formSubmitAttempt: boolean;
   submitted = false
+  invalid = false;
 
   get f() { return this.eventForm.controls; }
 
@@ -50,6 +51,10 @@ export class AddEventComponent implements OnInit {
   }
 
    isFieldInvalid(field: string) {
+    //  if((!this.eventForm.get(field).valid && this.eventForm.get(field).touched) || (this.eventForm.get(field).untouched && this.formSubmitAttempt)){
+    //   this.invalid = true;
+    //  }
+     
     return (
       (!this.eventForm.get(field).valid && this.eventForm.get(field).touched) ||
       (this.eventForm.get(field).untouched && this.formSubmitAttempt)
@@ -57,13 +62,16 @@ export class AddEventComponent implements OnInit {
   }
 
   submitForm(data){
-    this.submitted = true
+    
+    //  if(this.invalid == false){
+      this.submitted = true
       this.event.emit(data)
       console.log(data);
     this.formSubmitAttempt = true
     this.eventForm.reset()
+    // }
+    
   }
-
 }
 
 

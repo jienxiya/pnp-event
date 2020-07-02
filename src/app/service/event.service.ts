@@ -34,6 +34,20 @@ export class EventService {
   getEvent(){
     return this.firestore.collection('events').snapshotChanges();
   }
+
+  deleteEvent(data){
+    this.eventsCollection.ref.where('id','==', data.id).get()
+      .then(res=>{
+        res.forEach(doc =>{
+          this.eventDoc = this.firestore.doc<EventModel>('events/' + doc.id)
+          this.eventDoc.delete();
+        })
+      })
+  }
+   
+  // removeParticipant(){
+
+  // }
   
   addEvent(event: EventModel) {
     this.eventsCollection.ref.get().then(querySnapshot => {

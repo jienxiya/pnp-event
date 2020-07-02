@@ -14,6 +14,7 @@ export class ParticipantsListComponent implements OnInit {
   @Input() participants: any;
   @Output() backButton = new EventEmitter();
   @Output() addParticipant = new EventEmitter();
+  @Output() participant = new EventEmitter();
 
   constructor() { }
 
@@ -32,4 +33,7 @@ export class ParticipantsListComponent implements OnInit {
     this.company = '';
   }
 
+  removeParticipant(participant:any){
+    this.participant.emit(participant);
+  }
 }

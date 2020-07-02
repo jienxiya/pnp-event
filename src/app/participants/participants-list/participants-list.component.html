@@ -6,6 +6,7 @@
           <th>Full Name</th>
           <th>Position</th>
           <th>Company</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody *ngFor="let participant of participants" >
@@ -13,6 +14,7 @@
           <td>{{participant?.fullName}}</td>
           <td>{{participant?.position}}</td>
           <td>{{participant?.company}}</td>
+          <td><button class="btn btn-outline-info" (click)="removeParticipant(participant)">Remove</button></td>
         </tr>
       </tbody>
     </table>
