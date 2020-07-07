@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventModel, Participants } from '../service/event-model';
 import { EventService } from '../service/event.service';
 import { Subscription } from 'rxjs';
+import { Router } from "@angular/router";
+
+// import { UserAccount } from "../service/event-model";
  
 @Component({
     selector: 'app-events-list',
@@ -10,14 +13,17 @@ import { Subscription } from 'rxjs';
 })
 
 export class EventsListComponent implements OnInit, OnDestroy{
-    // events = EVENTS;
-    // event: any;
+    
+    // users: UserAccount[];
+    // user: UserAccount;
+    isLogin = true;
+
     events: EventModel[];
     event: EventModel;
     isViewingList = true;
     getEventsSubscription: Subscription;
 
-    constructor(private eventService: EventService) {}
+    constructor(private eventService: EventService, private router: Router) {}
 
     ngOnInit(){
     //this.events = this.eventService.getEvents();
@@ -72,7 +78,12 @@ export class EventsListComponent implements OnInit, OnDestroy{
     deleteEvent(data:any){
       console.log("event: " , this.events.indexOf(data));
       this.eventService.deleteEvent(data)
-      
+    }
 
+    logout(){
+      console.log("logout");
+      this.isLogin = false;
+      this.router.navigate(['/login']);
+      
     }
 }

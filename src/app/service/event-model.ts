@@ -22,3 +22,8 @@ export interface EventModel {
       position: string
       company: string
   }
+
+  export interface UserAccount{
+    username: any;
+    password: any;
+  }
