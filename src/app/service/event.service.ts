@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { EventModel, Participants } from '../service/event-model';
+import { EventModel, UserAccount } from '../service/event-model';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";
 import { query } from '@angular/animations';
 
@@ -15,6 +15,9 @@ export class EventService {
   private eventDoc:AngularFirestoreDocument<EventModel>
   private eventsCollection: AngularFirestoreCollection<EventModel>
   fEvent:Observable<EventModel[]>
+
+  private userAccount = new BehaviorSubject<UserAccount>({username:'',password:''})
+  currentUserAccount = this.userAccount.asObservable();
 
   constructor(private firestore: AngularFirestore) { 
     this.eventsCollection = firestore.collection<EventModel>('events', ref => ref.orderBy('id','asc'));
@@ -77,11 +80,16 @@ export class EventService {
         res.forEach(doc =>{
           this.eventDoc = this.firestore.doc<EventModel>('events/' + doc.id)
           this.eventDoc.update(event);
-        })
-      })
+        });
+      });
   }
 
+  updateCurrentUser(userAccount: UserAccount){
+    this.userAccount.next(userAccount);
+  }
 }
+
+
 
 export const EVENTS = [
   {

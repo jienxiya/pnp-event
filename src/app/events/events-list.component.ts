@@ -16,7 +16,7 @@ export class EventsListComponent implements OnInit, OnDestroy{
     
     // users: UserAccount[];
     // user: UserAccount;
-    isLogin = true;
+    // isLogin = true;
 
     events: EventModel[];
     event: EventModel;
@@ -31,7 +31,10 @@ export class EventsListComponent implements OnInit, OnDestroy{
         this.events = events;
         console.log("events: " , events);
         
-      })
+      });
+      this.eventService.currentUserAccount.subscribe(currentUser => {
+        console.log('Current User: ', currentUser);
+      });
     }
 
     ngOnDestroy(){
@@ -81,9 +84,10 @@ export class EventsListComponent implements OnInit, OnDestroy{
     }
 
     logout(){
-      console.log("logout");
-      this.isLogin = false;
+      this.eventService.updateCurrentUser({
+        username:'',
+        password:''
+      });
       this.router.navigate(['/login']);
-      
     }
 }

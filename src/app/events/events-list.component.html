@@ -1,10 +1,6 @@
-<div>
-    <button class="btn btn-outline-info" type="submit" (click)="logout()">Logout</button>
-</div>
-<hr>
-
 <!-- Array of events -->
 <div class="container" *ngIf="isViewingList">
+        <button class="btn btn-outline-danger" style="float:right;" type="button" (click)="logout()">Logout</button>
     <div class="row">
         <div class="col">
             <h2 class="pb-3">List Of PN Events</h2>
