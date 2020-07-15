@@ -1,14 +1,22 @@
-<div class="container">
-    <div class="row" style="margin-left: auto; margin-right: auto; justify-content: center; display: flex;">
-        <h4>{{event?.name}}</h4>
+<div *ngIf="event" class="jumbotron pointable">
+    <div class="col-sm-12">
+        <div class="row" style="justify-content: center; display: flex;">
+            <div class="col-sm-8">
+                <h2>{{event?.name}}</h2>
+            </div>
+            <div class="col-sm-4">
+                <!-- <button id="deleteBtn" class=" btn btn-outline-danger" type="button" (click)="deleteEvent(event)">Delete Event</button> -->
+                <button class="btn btn-outline-info" type="button" style="float:right" (click)="viewEventList()">Back</button>
+            </div>
+        </div>
     </div>
     <div class="row">
         <span><b>Event Category:</b> {{event?.category}}</span>
     </div>
-    <div class="row" *ngIf="event.speaker">
+    <div class="row" *ngIf="event?.speaker">
         <span><b>Event Speaker:</b> {{event?.speaker}}</span>
     </div>
-    <div class="row" *ngIf="event.emcee">
+    <div class="row" *ngIf="event?.emcee">
         <span><b>Event Emcee:</b> {{event?.emcee}}</span>
     </div>
     <div class="row">
@@ -21,7 +29,17 @@
         <span><b>Event Description:</b> {{event?.description}}</span>
     </div>
     <br>
-    <button id="viewBtn" class=" btn btn-outline-info" type="submit" (click)="sendID(event.id)">View Details</button>
-    <button id="deleteBtn" class=" btn btn-outline-info" type="submit" (click)="deleteEvent(event)">Delete Event</button>
+    <br>
+    <div class="container">
+        <app-participants-list 
+        [participants]="event?.participants" 
+        (addParticipant)="addParticipant($event)"
+        (participant)="removeParticipant($event)"
+        ></app-participants-list>
 
+    </div>
+
+</div>
+<div *ngIf="!event" class="jumbotron pointable">
+    <div class="spinner-border text-primary"></div>
 </div>

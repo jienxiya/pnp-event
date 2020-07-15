@@ -3,9 +3,18 @@
 // }
 #deleteBtn{
     float: right;
-    width: 200px;
 }
 #viewBtn{
     float: left;
     width: 200px;
+}
+.body-content{
+    font-size:25px;
+    padding-left:30px;
+}
+
+.spinner-border{
+    display: flexbox;
+    align-self: center;
+    justify-self: center; 
 }

@@ -1,5 +1,6 @@
-<div class="container">  
-  <div style="background-color: rgba(228, 178, 178, 0.15);  backdrop-filter: blur(5px); border-radius: 5px;">
+<div class="container participants-list ">
+  <h4>List Of Participants</h4>
+  <div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -9,7 +10,7 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody *ngFor="let participant of participants" >
+      <tbody *ngFor="let participant of participants">
         <tr>
           <td>{{participant?.fullName}}</td>
           <td>{{participant?.position}}</td>
@@ -19,27 +20,25 @@
       </tbody>
     </table>
     <div style="justify-content: center; display: flex;">
-      <button class="btn btn-outline-info" style="width: 200px;" type="submit" (click)="returnToList()">Back</button> &nbsp;&nbsp;&nbsp; 
-      <button class="btn btn-outline-info" style="width: 200px;" data-toggle="modal" data-target="#myModal">Add Participant</button>
+      <button class="btn btn-outline-info" style="width: 200px;" data-toggle="modal" data-target="#myModal">Add
+        Participant</button>
     </div><br>
-  </div>   
-  
-  
-  
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-        
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Add Participant</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          
-          <!-- Modal body -->
-          <div class="modal-body">
-            <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)" autocomplete="off">
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Participant</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)" autocomplete="off">
             <div class="form-group">
               <label for="fullName">Full Name</label>
               <input [ngModel]="fullName" name="fullName" type="text" class="form-control" placeholder="Full Name">
@@ -54,9 +53,8 @@
             </div>
             <button class="btn-block btn btn-outline-info" type="submit" data-toggle="modal" data-target="#myModal">Add</button>
           </form>
-          </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
-

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-participants-list',
@@ -26,7 +25,6 @@ export class ParticipantsListComponent implements OnInit {
   }
 
   register(data){
-    // console.log(data);
     this.addParticipant.emit(data);
     this.fullName = '';
     this.position = '';
