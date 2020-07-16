@@ -31,7 +31,8 @@ export class AddEventComponent implements OnInit {
         building: new FormControl(),
         room: new FormControl(),
       }),
-      description: new FormControl()
+      description: new FormControl(),
+      participants: new FormControl([]),
     })
   }
 

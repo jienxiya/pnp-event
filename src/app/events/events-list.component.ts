@@ -33,9 +33,9 @@ export class EventsListComponent implements OnInit, OnDestroy{
       this.eventService.addEvent(event);
     }
 
-    // deleteEvent(data:any){
-    //   this.eventService.deleteEvent(data)
-    // }
+    deleteEvent(data:any){
+      this.eventService.deleteEvent(data)
+    }
 
     logout(){
       this.eventService.updateCurrentUser({

@@ -32,15 +32,15 @@ export class EventService {
     return this.events;
   }
 
-  // deleteEvent(data){
-  //   this.eventsCollection.ref.where('id','==', data.id).get()
-  //     .then(res=>{
-  //       res.forEach(doc =>{
-  //         this.eventDoc = this.firestore.doc<EventModel>('events/' + doc.id)
-  //         this.eventDoc.delete();
-  //       })
-  //     })
-  // }
+  deleteEvent(data){
+    this.eventsCollection.ref.where('id','==', data.id).get()
+      .then(res=>{
+        res.forEach(doc =>{
+          this.eventDoc = this.firestore.doc<EventModel>('events/' + doc.id)
+          this.eventDoc.delete();
+        })
+      })
+  }
   
   addEvent(event: EventModel) {
     this.eventsCollection.ref.get().then(querySnapshot => {

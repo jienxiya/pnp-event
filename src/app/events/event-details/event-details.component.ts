@@ -27,19 +27,11 @@ export class EventDetailsComponent implements OnInit {
     .then(event => this.event = event as EventModel);
   }
 
-  // deleteEvent(data:any){
-  //   this.data.emit(data)
-  // }
-
-  // deleteEvent(data:any){
-  //   this.eventService.deleteEvent(data)
-  // }
-
   viewEventList() {
     this.router.navigate(['/events'])
   }
 
-  addParticipant(participant: Participants) {
+  addNewParticipant(participant: Participants) {
     this.event.participants.push(participant)
     this.eventService.updateEvent(this.event)
   }
